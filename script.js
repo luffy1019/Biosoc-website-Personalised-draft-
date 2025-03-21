@@ -252,52 +252,85 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Gallery functionality
+// Gallery functionality
 document.querySelectorAll('.gallery-item').forEach(item => {
     item.addEventListener('click', () => {
         const overlay = document.querySelector('.gallery-overlay');
         const popup = document.querySelector('.gallery-popup');
         const imageContainer = document.querySelector('.gallery-image-container');
         
-        // Get image and text content
-        const img = item.querySelector('img');
-        const title = item.querySelector('.item-text h3').textContent;
-        const description = item.querySelector('.item-text p').textContent;
+        // Get the clicked item's position and dimensions
+        const itemRect = item.getBoundingClientRect();
+        const targetRect = popup.getBoundingClientRect();
         
-        // Set content in overlay
-        imageContainer.innerHTML = `
-            <img src="${img.src}" alt="${img.alt}">
-            <div class="gallery-text-overlay">
-                <h3>${title}</h3>
-                <p>${description}</p>
-            </div>
-        `;
-        
-        // Show overlay
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        // Store original position for animation back
+        item.style.transformOrigin = 'top left';
+        item.dataset.originalPosition = JSON.stringify({
+            x: itemRect.left,
+            y: itemRect.top,
+            width: itemRect.width,
+            height: itemRect.height
+        });
+
+        // Calculate the transform values
+        const scaleX = targetRect.width / itemRect.width;
+        const scaleY = targetRect.height / itemRect.height;
+        const translateX = targetRect.left - itemRect.left;
+        const translateY = targetRect.top - itemRect.top;
+
+        // Apply the animation
+        item.style.position = 'fixed';
+        item.style.zIndex = '1001';
+        item.style.transition = 'transform 0.5s ease-in-out';
+        item.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`;
+
+        // Show overlay after slight delay
+        setTimeout(() => {
+            overlay.classList.add('active');
+            // Get image and text content for overlay
+            const img = item.querySelector('img');
+            const title = item.querySelector('.item-text h3').textContent;
+            const description = item.querySelector('.item-text p').textContent;
+            
+            // Set content in overlay
+            imageContainer.innerHTML = `
+                <img src="${img.src}" alt="${img.alt}">
+                <div class="gallery-text-overlay">
+                    <h3>${title}</h3>
+                    <p>${description}</p>
+                </div>
+            `;
+        }, 500);
     });
 });
 
-// Close gallery overlay
-document.querySelector('.close-gallery').addEventListener('click', () => {
+// Close gallery overlay with animation
+function closeGalleryOverlay() {
     const overlay = document.querySelector('.gallery-overlay');
-    overlay.classList.remove('active');
-    document.body.style.overflow = 'auto';
-});
+    const activeItem = document.querySelector('.gallery-item[style*="position: fixed"]');
+    
+    if (activeItem) {
+        const originalPosition = JSON.parse(activeItem.dataset.originalPosition);
+        overlay.classList.remove('active');
+        
+        // Animate back to original position
+        activeItem.style.transform = 'translate(0, 0) scale(1)';
+        
+        // Reset after animation
+        setTimeout(() => {
+            activeItem.style.position = '';
+            activeItem.style.zIndex = '';
+            activeItem.style.transition = '';
+            activeItem.style.transform = '';
+            activeItem.style.transformOrigin = '';
+        }, 500);
+    }
+}
 
-// Close on overlay background click
-document.addEventListener("DOMContentLoaded", function () {
-    const overlay = document.querySelector('.gallery-overlay');
-    const popup = document.querySelector('.gallery-popup');
-
-    if (overlay) {
-        overlay.addEventListener('click', (e) => {
-            // If click happens outside the popup, close the overlay
-            if (!popup.contains(e.target)) {
-                overlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        });
+// Add event listeners for closing
+document.querySelector('.close-gallery').addEventListener('click', closeGalleryOverlay);
+document.querySelector('.gallery-overlay').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+        closeGalleryOverlay();
     }
 });
-
