@@ -109,9 +109,6 @@ function setupEventSlider() {
     });
     const overlay = document.querySelector('.event-overlay');
     const overlayImage = overlay.querySelector('.overlay-image img');
-    const overlayTitle = overlay.querySelector('h3');
-    const overlayDate = overlay.querySelector('.event-date');
-    const overlayLocation = overlay.querySelector('.event-location');
 
     // Add click event listeners to each card
     cards.forEach(card => {
@@ -289,9 +286,18 @@ document.querySelector('.close-gallery').addEventListener('click', () => {
 });
 
 // Close on overlay background click
-document.querySelector('.gallery-overlay').addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) {
-        e.currentTarget.classList.remove('active');
-        document.body.style.overflow = 'auto';
+document.addEventListener("DOMContentLoaded", function () {
+    const overlay = document.querySelector('.gallery-overlay');
+    const popup = document.querySelector('.gallery-popup');
+
+    if (overlay) {
+        overlay.addEventListener('click', (e) => {
+            // If click happens outside the popup, close the overlay
+            if (!popup.contains(e.target)) {
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
     }
 });
+
