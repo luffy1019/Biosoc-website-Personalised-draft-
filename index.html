@@ -52,7 +52,20 @@
         <div class="event-slider">
             <button class="slider-nav prev-btn">❮</button>
             <div class="event-grid">
-                <!-- First event card -->
+                <!-- Default "No Events" card -->
+                <div class="event-card no-events" style="display: none;">
+                    <div class="event-info">
+                        <h3>No Upcoming Events</h3>
+                        <p class="event-date">Stay tuned for future events!</p>
+                        <p class="event-location">Want to organize an event?</p>
+                        <a href="#" class="contact-btn">Contact Us</a>
+                    </div>
+                    <div class="event-image">
+                        <img src="default-event.jpg" alt="No Upcoming Events">
+                    </div>
+                </div>
+                
+                <!-- Regular event cards -->
                 <div class="event-card" data-event-details='{
                     "title": "Global AI in Bioinformatics Conference",
                     "date": "14 Apr 2024, 11:30 am - 1:30 pm",

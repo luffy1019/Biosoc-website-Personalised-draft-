@@ -335,6 +335,24 @@
     flex-wrap: nowrap;
 }
 
+.event-card.no-events {
+    background: linear-gradient(135deg, #2a2a4a, #1a1a2a);
+    border: 2px dashed #444;
+}
+
+.event-card.no-events .contact-btn {
+    background: #4a4a6a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.event-card.no-events .contact-btn:hover {
+    background: #5a5a7a;
+}
+
 .event-card {
     min-width: 100%;
     flex: 0 0 100%;

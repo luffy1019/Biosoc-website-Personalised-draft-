@@ -13,18 +13,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Auto-scrolling functionality for events
 function setupEventSlider() {
     const eventGrid = document.querySelector('.event-grid');
-    const cards = document.querySelectorAll('.event-card');
+    const cards = document.querySelectorAll('.event-card:not(.no-events)');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     let currentIndex = 0;
     let autoScrollInterval;
 
+    // Add check for empty events
+    function checkEvents() {
+        if (cards.length === 0) {
+            // Show the no-events card and hide navigation
+            const noEventsCard = document.querySelector('.event-card.no-events');
+            if (noEventsCard) {
+                noEventsCard.style.display = 'flex';
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+            }
+            return false;
+        }
+        return true;
+    }
+
     function scrollToNext() {
+        if (!checkEvents()) return;
         currentIndex = (currentIndex + 1) % cards.length;
         updateSlider();
     }
 
     function scrollToPrev() {
+        if (!checkEvents()) return;
         currentIndex = (currentIndex - 1 + cards.length) % cards.length;
         updateSlider();
     }
@@ -162,6 +179,10 @@ function setupEventSlider() {
     
     // Initialize auto-scroll
     resetAutoScroll();
+    if (checkEvents()) {
+        updateSlider();
+        resetAutoScroll();
+    }
 }
 
 // Add click event listener for gallery items
