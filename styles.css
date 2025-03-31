@@ -800,6 +800,63 @@
     background: rgba(255, 255, 255, 0.3);
 }
 
+.logo-carousel-section {
+    padding: 40px 0;
+    background: linear-gradient(45deg, #1a0b2e, #2b1055);
+    overflow: hidden;
+}
+
+.logo-carousel-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.logo-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    background: linear-gradient(45deg, #1a0b2e, #2b1055);
+}
+
+.logo-track {
+    display: flex;
+    width: fit-content;
+    animation: infiniteScroll 20s linear infinite;
+}
+
+.logo-slide {
+    flex: 0 0 200px;
+    padding: 0 20px;
+    min-width: 200px;
+}
+
+.logo-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.logo-slide img:hover {
+    filter: grayscale(0%);
+}
+
+@keyframes infiniteScroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-200px * var(--logo-count))); /* Will be set by JS */
+    }
+}
+
+.logo-track:hover {
+    animation-play-state: paused;
+}
+
 
 /* Hide scrollbar for all browsers */
 html {
