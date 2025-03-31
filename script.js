@@ -355,3 +355,18 @@ document.querySelector('.gallery-overlay').addEventListener('click', (e) => {
         closeGalleryOverlay();
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.logo-track');
+    const logos = track.querySelectorAll('.logo-slide');
+    
+    // Set CSS variable for total logos
+    track.style.setProperty('--logo-count', logos.length);
+    
+    // Clone logos for seamless scroll
+    logos.forEach(logo => {
+        const clone = logo.cloneNode(true);
+        track.appendChild(clone);
+    });
+});
