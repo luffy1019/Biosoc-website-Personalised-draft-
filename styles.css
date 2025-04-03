@@ -801,7 +801,7 @@
 }
 
 .logo-carousel-section {
-    padding: 40px 0;
+    padding: 40px 5%;
     background: linear-gradient(45deg, #1a0b2e, #2b1055);
     overflow: hidden;
 }
@@ -822,34 +822,41 @@
 
 .logo-track {
     display: flex;
-    width: fit-content;
-    animation: infiniteScroll 20s linear infinite;
+    align-items: center;
+    gap: 60px;
+    animation: scroll 30s linear infinite;
+    padding: 20px 0;
 }
 
 .logo-slide {
-    flex: 0 0 200px;
-    padding: 0 20px;
-    min-width: 200px;
+    flex: 0 0 180px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 0px;
 }
 
 .logo-slide img {
     width: 100%;
-    height: auto;
-    object-fit: contain;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .logo-slide img:hover {
-    filter: grayscale(0%);
+    filter: brightness(1) invert(0) opacity(1);
 }
 
-@keyframes infiniteScroll {
-    from {
+@keyframes scroll {
+    0% {
         transform: translateX(0);
     }
-    to {
-        transform: translateX(calc(-200px * var(--logo-count))); /* Will be set by JS */
+    100% {
+        transform: translateX(calc(-100% - 60px));
     }
 }
 
@@ -961,6 +968,132 @@ body::-webkit-scrollbar {
     60% {
         transform: translateY(-5px);
     }
+}
+
+
+.footer {
+    background: #000;
+    color: #fff;
+    padding: 60px 5% 20px;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 40px;
+    position: relative;
+}
+
+.footer-section:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    transform: none;
+}
+
+.footer-section h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer-section:first-child h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.footer-section p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.8;
+    margin-bottom: 15px;
+    max-width: 400px;
+}
+
+.university-name {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+.social-links {
+    display: flex;
+    gap: 25px;
+    margin-top: 15px;
+}
+
+.social-links a img {
+    width: 22px;
+    height: 22px;
+    opacity: 0.8;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-links a:hover img {
+    opacity: 1;
+    transform: translate(-2px);
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    position: relative;
+    padding: 2px 0;
+}
+
+.footer-section ul li a:hover {
+    opacity: 1;
+    color: #00bf9a;
+    transform: translateX(5px);
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.contact-info li {
+    opacity: 0.8;
+    margin-bottom: 8px;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer-bottom p {
+    opacity: 0.6;
+    font-size: 0.8rem;
 }
 
 /* Add smooth scrolling to the whole page */
