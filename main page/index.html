@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioSoc DTU</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="logo">
+            <img src="logo.png" alt="BioSoc DTU Logo" class="logo-img">
+            <span class="logo-text">BioSoc DTU</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">For Students</a>
+            <a href="#">For Companies</a>
+            <a href="#">Faculty</a>
+            <a href="#">Alumni</a>
+            <a href="#">Team</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Innovate With Us</h1>
+            <p>Welcome to BioSoc DTU - your gateway to cutting-edge biotechnology and bold innovation. Join us on an exciting journey of discovery, innovation, and collaboration.</p>
+            <a href="#" class="join-now-btn">Join Now</a>
+        </div>
+    </section>
+
+    <section class="who-we-are">
+        <div class="who-we-are-content">
+            <h2>Who We Are</h2>
+            <div class="who-we-are-grid">
+                <div class="who-we-are-image">
+                    <img src="img1.jpg" alt="BioSoc Research">
+                </div>
+                <div class="who-we-are-text">
+                    <p class="main-description">BioSoc DTU is a dynamic college society at the forefront of biotechnology and bioinformatics. We are dedicated to fostering a community of passionate individuals driven by a shared commitment to scientific advancement and innovation.</p>
+                    <p class="mission">Our mission is to provide a platform for knowledge exchange, skill development, and networking within the field. With a focus on cutting-edge research and practical applications, we aim to empower students with the tools and resources needed to excel in the evolving landscape of biotech and bioinformatics.</p>
+                    <a href="#" class="learn-more-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="event-section">
+        <h2>Event Details</h2>
+        <div class="event-slider">
+            <button class="slider-nav prev-btn">❮</button>
+            <div class="event-grid">
+                <!-- Default "No Events" card -->
+                <div class="event-card no-events" style="display: none;">
+                    <div class="event-info">
+                        <h3>No Upcoming Events</h3>
+                        <p class="event-date">Stay tuned for future events!</p>
+                        <p class="event-location">Want to organize an event?</p>
+                        <a href="#" class="contact-btn">Contact Us</a>
+                    </div>
+                    <div class="event-image">
+                        <img src="default-event.jpg" alt="No Upcoming Events">
+                    </div>
+                </div>
+                
+                <!-- Regular event cards -->
+                <div class="event-card" data-event-details='{
+                    "title": "Global AI in Bioinformatics Conference",
+                    "date": "14 Apr 2024, 11:30 am - 1:30 pm",
+                    "description": "Discover the latest AI breakthroughs revolutionizing bioinformatics, from genomics to drug discovery. Connect with top researchers, industry leaders, and innovators shaping the future of biotech.",
+                    "schedule": [
+                        {"time": "01:00", "activity": "AI in Genomics & Data Science"},
+                        {"time": "01:00", "activity": "AI-Driven Drug Discovery & Healthcare"},
+                        {"time": "01:00", "activity": "Future of AI in Bioinformatics"}
+                    ],
+                    "speakers": [
+                        {"name": "Alex Stone", "image": "speaker1.jpg"},
+                        {"name": "Priya Patel", "image": "speaker2.jpg"}
+                    ]
+                }'>
+                    <div class="event-info">
+                        <h3>Global AI in Bioinformatics Conference</h3>
+                        <p class="event-date">14 Apr 2024, 11:30 am - 1:30 pm</p>
+                        <p class="event-location">DTU Conference Hall</p>
+                        <a href="#" class="register-btn">Register Now</a>
+                    </div>
+                    <div class="event-image">
+                        <img src="img2.webp" alt="AI Bioinformatics Conference">
+                    </div>
+                </div>
+                <!-- First event card (END)-->
+                
+                <!-- Second event card -->
+                <div class="event-card" data-event-details='{
+                    "title": "Biotechnology Innovation Summit",
+                    "date": "20 Apr 2024, 10:00 am - 4:00 pm",
+                    "description": "Join us for a transformative summit exploring the intersection of biotechnology and sustainable development. Learn from industry pioneers and discover breakthrough innovations.",
+                    "schedule": [
+                        {"time": "10:00", "activity": "Opening Keynote: Future of Biotech"},
+                        {"time": "11:30", "activity": "Panel: Sustainable Biotechnology"},
+                        {"time": "02:00", "activity": "Workshop: Innovation in Practice"}
+                    ],
+                    "speakers": [
+                        {"name": "Dr. Sarah Chen", "image": "speaker3.jpg"},
+                        {"name": "Prof. James Miller", "image": "speaker4.jpg"}
+                    ]
+                }'>
+                    <div class="event-info">
+                        <h3>Biotechnology Innovation Summit</h3>
+                        <p class="event-date">20 Apr 2024, 10:00 am - 4:00 pm</p>
+                        <p class="event-location">DTU Innovation Hub</p>
+                        <a href="#" class="register-btn">Register Now</a>
+                    </div>
+                    <div class="event-image">
+                        <img src="img3.jpg" alt="Biotech Summit">
+                    </div>
+                </div>
+                <!-- Second event card (END)-->
+
+                <!-- Third event card -->
+                <div class="event-card" data-event-details='{
+                    "title": "Synthetic Biology Workshop",
+                    "date": "25 Apr 2024, 9:00 am - 5:00 pm",
+                    "description": "Dive deep into the world of synthetic biology. Learn about CRISPR technology, genetic circuits, and the future of engineered biological systems. Hands-on workshop sessions included.",
+                    "schedule": [
+                        {"time": "09:00", "activity": "Introduction to Synthetic Biology"},
+                        {"time": "11:00", "activity": "CRISPR Technology Workshop"},
+                        {"time": "02:00", "activity": "Practical Lab Session"}
+                    ],
+                    "speakers": [
+                        {"name": "Dr. Michael Chang", "image": "speaker5.jpg"},
+                        {"name": "Dr. Emma Watson", "image": "speaker6.jpg"}
+                    ]
+                }'>
+                    <div class="event-info">
+                        <h3>Synthetic Biology Workshop</h3>
+                        <p class="event-date">25 Apr 2024, 9:00 am - 5:00 pm</p>
+                        <p class="event-location">DTU Bioengineering Lab</p>
+                        <a href="#" class="register-btn">Register Now</a>
+                    </div>
+                    <div class="event-image">
+                        <img src="img4.webp" alt="Synthetic Biology Workshop">
+                    </div>  
+                </div>
+                <!-- Third event card (END)-->
+                
+                <!-- Fourth event card -->
+                <div class="event-card" data-event-details='{
+                    "title": "Healthcare Data Analytics Symposium",
+                    "date": "30 Apr 2024, 2:00 pm - 6:00 pm",
+                    "description": "Explore the intersection of healthcare and data analytics. Learn about predictive diagnostics, personalized medicine, and how big data is revolutionizing healthcare delivery.",
+                    "schedule": [
+                        {"time": "02:00", "activity": "Healthcare Analytics Overview"},
+                        {"time": "03:30", "activity": "Machine Learning in Medical Diagnosis"},
+                        {"time": "05:00", "activity": "Future of Digital Healthcare"}
+                    ],
+                    "speakers": [
+                        {"name": "Prof. Lisa Anderson", "image": "speaker7.jpg"},
+                        {"name": "Dr. Robert Kim", "image": "speaker8.jpg"}
+                    ]
+                }'>
+                    <div class="event-info">
+                        <h3>Healthcare Data Analytics Symposium</h3>
+                        <p class="event-date">30 Apr 2024, 2:00 pm - 6:00 pm</p>
+                        <p class="event-location">DTU Health Tech Center</p>
+                        <a href="#" class="register-btn">Register Now</a>
+                    </div>
+                    <div class="event-image">
+                        <img src="img5.jpg" alt="Healthcare Analytics Symposium">
+                    </div>
+                </div>
+                <!-- Fourth event card (END) -->
+
+                
+            </div>
+            <button class="slider-nav next-btn">❯</button>
+        </div>
+    </section>
+
+    <div class="scroll-indicator" onclick="document.querySelector('.event-section').scrollIntoView({behavior: 'smooth'})"></div>
+    <!-- Add this after your event-section -->
+    <div class="event-overlay">
+        <div class="overlay-content">
+            <div class="overlay-image">
+                <img src="" alt="Event Image">
+                <div class="image-overlay-text">
+                    <h2>Global AI in Bioinformatics Conference</h2>
+                    <p>Discover the latest AI breakthroughs revolutionizing bioinformatics, from genomics to drug discovery. Connect with top researchers, industry leaders, and innovators shaping the future of biotech. Gain insights, network, and explore cutting-edge solutions transforming healthcare and life sciences!</p>
+                </div>
+            </div>
+            <div class="overlay-info">
+                <button class="close-overlay">×</button>
+                <h3>Schedule</h3>
+                <ul class="schedule-timeline">
+                    <li>
+                        <span class="time">01:00</span>
+                        <span class="activity">AI in Genomics & Data Science</span>
+                    </li>
+                    <li>
+                        <span class="time">01:00</span>
+                        <span class="activity">AI-Driven Drug Discovery & Healthcare</span>
+                    </li>
+                    <li>
+                        <span class="time">01:00</span>
+                        <span class="activity">Future of AI in Bioinformatics</span>
+                    </li>
+                </ul>
+                <div class="speakers-section">
+                    <h3>Speakers:</h3>
+                    <div class="speakers-list">
+                        <div class="speaker">
+                            <img src="speaker1.jpg" alt="Alex Stone">
+                            <span>Alex Stone</span>
+                        </div>
+                        <div class="speaker">
+                            <img src="speaker2.jpg" alt="Priya Patel">
+                            <span>Priya Patel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="gallery-section">
+        <h2>Our Departments</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item main-item">
+                <img src="img5.jpg" alt="">
+                <div class="item-text">
+                    <h3>Research & Innovation</h3>
+                    <p>A community of biology enthusiasts at IIIT Delhi, fostering innovation and research in biosciences.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="img1.jpg" alt="">
+                <div class="item-text">
+                    <h3>Synthetic Biology</h3>
+                    <p>Exploring the frontiers of genetic engineering and biological system design through cutting-edge research and experimentation.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="img2.webp" alt="">
+                <div class="item-text">
+                    <h3>Bioinformatics</h3>
+                    <p>Leveraging computational tools and AI to analyze biological data and unlock the mysteries of life sciences.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="img3.jpg" alt="">
+                <div class="item-text">
+                    <h3>Healthcare Innovation</h3>
+                    <p>Developing next-generation solutions at the intersection of biotechnology and healthcare delivery systems.</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="gallery-overlay">
+            <div class="gallery-popup">
+                <button class="close-gallery">&times;</button>
+                <div class="gallery-image-container">
+                    <!-- Image will be inserted here by JavaScript -->
+                    <div class="gallery-text-overlay">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="logo-carousel-section">
+        <h2>Our Partners</h2>
+        <div class="logo-carousel">
+            <div class="logo-track">
+                <div class="logo-slide">
+                    <img src="nescafe.jpg" alt="Partner 1">
+                </div>
+                <div class="logo-slide">
+                    <img src="partner2.png" alt="Partner 2">
+                </div>
+                <div class="logo-slide">
+                    <img src="partner3.png" alt="Partner 3">
+                </div>
+                <div class="logo-slide">
+                    <img src="partner4.png" alt="Partner 4">
+                </div>
+                <div class="logo-slide">
+                    <img src="partner5.png" alt="Partner 5">
+                </div>
+
+                <div class="logo-slide">
+                    <img src="partner1.png" alt="Partner 1">
+                </div>
+                <div class="logo-slide">
+                    <img src="partner2.png" alt="Partner 2">
+                </div>
+                <div class="logo-slide">
+                    <img src="partner3.png" alt="Partner 3">
+                </div>
+                <div class="logo-slide">
+                    <img src="partner4.png" alt="Partner 4">
+                </div>
+                <div class="logo-slide">
+                    <img src="partner5.png" alt="Partner 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About BioSoc DTU</h3>
+                <p class="university-name">Delhi Technological University</p>
+                <p>Fostering innovation and excellence in biotechnology through research, collaboration, and knowledge sharing.</p>
+                <div class="social-links">
+                    <a href="#"><img src="linked_in.svg" alt="LinkedIn"></a>
+                    <a href="#"><img src="gmail.svg" alt="Mail"></a>
+                    <a href="#"><img src="instagram.svg" alt="Instagram"></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Publications</a></li>
+                    <li><a href="#">Join Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li>Delhi Technological University</li>
+                    <li>Shahbad Daulatpur, Delhi-110042</li>
+                    <li>Email: biosoc@dtu.ac.in</li>
+                    <li>Phone: +91 XXXXXXXXXX</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BioSoc DTU. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="biowave"></div>
+    <script src="script.js"></script>
+</body>
+</html>
